@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-black;
+  }
+  
+  body {
+    @apply bg-background text-primary font-hand;
+    background-image: radial-gradient(#000 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-color: #fdfdfd;
+    /* Faint dot grid */
+    background-blend-mode: multiply;
+    opacity: 1;
+  }
+
+  /* Make headings the secondary hand font */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-secondary font-bold;
+  }
+}
+
+@layer components {
+  .btn-sketch {
+    @apply px-6 py-3 bg-surface border-2 border-black shadow-sketch transition-all duration-200 hover:shadow-sketch-hover hover:-translate-y-0.5 active:translate-y-0 active:shadow-none rounded-lg font-bold text-lg;
+  }
+  
+  .btn-sketch-primary {
+    @apply btn-sketch bg-black text-white hover:bg-gray-900;
+  }
+
+  .card-sketch {
+    @apply bg-surface border-2 border-black shadow-sketch rounded-xl p-6;
+  }
+
+  .input-sketch {
+    @apply w-full px-4 py-3 bg-surface border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black/20 transition-shadow font-hand text-lg placeholder:text-gray-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
